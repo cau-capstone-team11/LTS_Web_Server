@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Authority">
+
+	<select id="selectUser" parameterType="hashMap" resultType="hashMap">
+	
+		SELECT
+			ID as "id",
+			name as "name"
+		FROM
+			`user`
+		WHERE
+			ID = #{userId}
+			
+	
+	</select>
+	
+
+	
+	<select id="getUserInfo" parameterType="hashMap" resultType="hashMap">
+	
+		
+			
+		SELECT 
+			A.UDID as "UDID",
+			A.ID as "id",
+			A.name as "name"
+		FROM 
+			gym_admin AS A
+		WHERE 
+			A.ID = #{id} AND #{password} = AES_DECRYPT(UNHEX(A.PWD),'lifesports')
+	
+	</select>
+
+</mapper>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ROOT">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="jackson-mapper-asl-1.9.13.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jackson-mapper-asl-1.9.13/jackson-mapper-asl-1.9.13">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-support-3.1.1.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-context-support-3.1.1.RELEASE/spring-context-support-3.1.1.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mybatis-spring-1.2.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/mybatis-spring-1.2.0/mybatis-spring-1.2.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-databind-2.9.8.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jackson-databind-2.9.8/jackson-databind-2.9.8">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-core-2.9.8.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jackson-core-2.9.8/jackson-core-2.9.8">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-webmvc-3.1.1.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-webmvc-3.1.1.RELEASE/spring-webmvc-3.1.1.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-jdbc-3.1.1.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-jdbc-3.1.1.RELEASE/spring-jdbc-3.1.1.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-core-3.1.1.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-core-3.1.1.RELEASE/spring-core-3.1.1.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-text-1.6.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-text-1.6/commons-text-1.6">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-lang-2.5.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-lang-2.5/commons-lang-2.5">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="maven-install-plugin-2.4.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/maven-install-plugin-2.4/maven-install-plugin-2.4">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-pool-1.5.4.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-pool-1.5.4/commons-pool-1.5.4">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="asm-5.0.4.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/asm-5.0.4/asm-5.0.4">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mybatis-3.2.2.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/mybatis-3.2.2/mybatis-3.2.2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="json-smart-2.3.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/json-smart-2.3/json-smart-2.3">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="aspectjrt-1.6.10.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/aspectjrt-1.6.10/aspectjrt-1.6.10">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-dbcp-1.4.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-dbcp-1.4/commons-dbcp-1.4">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-web-3.1.1.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-web-3.1.1.RELEASE/spring-web-3.1.1.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j-1.2.15.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/log4j-1.2.15/log4j-1.2.15">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections-3.2.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-collections-3.2.1/commons-collections-3.2.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-beanutils-1.8.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-beanutils-1.8.0/commons-beanutils-1.8.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ezmorph-1.0.6.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/ezmorph-1.0.6/ezmorph-1.0.6">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="json-lib-2.4-jdk15.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/json-lib-2.4-jdk15/json-lib-2.4-jdk15">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.1.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-logging-1.1.1/commons-logging-1.1.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-tx-3.1.1.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-tx-3.1.1.RELEASE/spring-tx-3.1.1.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jstl-1.2.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jstl-1.2/jstl-1.2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-core-asl-1.9.13.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jackson-core-asl-1.9.13/jackson-core-asl-1.9.13">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-expression-3.1.1.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-expression-3.1.1.RELEASE/spring-expression-3.1.1.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="accessors-smart-1.2.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/accessors-smart-1.2/accessors-smart-1.2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-annotations-2.9.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jackson-annotations-2.9.0/jackson-annotations-2.9.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-3.1.1.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-context-3.1.1.RELEASE/spring-context-3.1.1.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-beans-3.1.1.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-beans-3.1.1.RELEASE/spring-beans-3.1.1.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javax.inject-1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/javax.inject-1/javax.inject-1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jcl-over-slf4j-1.6.6.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jcl-over-slf4j-1.6.6/jcl-over-slf4j-1.6.6">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.6.6.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/slf4j-api-1.6.6/slf4j-api-1.6.6">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-configuration2-2.4.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-configuration2-2.4/commons-configuration2-2.4">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-lang3-3.8.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-lang3-3.8.1/commons-lang3-3.8.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-log4j12-1.6.6.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/slf4j-log4j12-1.6.6/slf4j-log4j12-1.6.6">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="aopalliance-1.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/aopalliance-1.0/aopalliance-1.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-asm-3.1.1.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-asm-3.1.1.RELEASE/spring-asm-3.1.1.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mysql-connector-java-5.1.31.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/mysql-connector-java-5.1.31/mysql-connector-java-5.1.31">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aop-3.1.1.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-aop-3.1.1.RELEASE/spring-aop-3.1.1.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="ROOT"/>
+        <property name="java-output-path" value="/ROOT/build/classes"/>
+    </wb-module>
+</project-modules>

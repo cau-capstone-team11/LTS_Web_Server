@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Schedule">
+
+	<!-- 
+	@Parameter : MONTH / YEAR
+	@Do : 해당 월 일정 검색
+	 -->
+	<select id="scheduleListByMonth" parameterType="hashMap" resultType="hashMap">
+		select
+			schedule_ID as "id",
+			gym_ID as "gym_id",
+			fac_ID as "fac_id",
+			schedule_name as "name",
+			schedule_detail as "detail",
+			schedule_type as "type",
+			DATE_FORMAT(starttime, '%Y-%m-%d %H%:%i:%s') as "startTime",
+			DATE_FORMAT(endtime, '%Y-%m-%d %H%:%i:%s') as "endTime"
+		from
+			fac_schedule
+		where
+			STR_TO_DATE(#{searchStartDate}, '%Y-%m') &lt; STR_TO_DATE(starttime, '%Y-%m-%d %H:%i:%s') AND
+			STR_TO_DATE(#{searchEndDate}, '%Y-%m') &gt; STR_TO_DATE(starttime, '%Y-%m-%d %H:%i:%s') AND
+			fac_ID = #{fac_id}
+	</select>
+	
+	<!-- 
+	@Parameter : Multi
+	@Do : 새로운 일정 추가
+	 -->
+	<insert id="insertSchedule" parameterType="hashMap" useGeneratedKeys="true" keyProperty="id" keyColumn="schedule_ID">
+		insert
+			into
+			fac_schedule 
+		(			
+			gym_ID,
+			fac_ID,
+			schedule_name,
+			schedule_detail,
+			schedule_type,
+			subj_ID,
+			starttime,
+			endtime
+		)	
+		values
+		(
+			(
+				SELECT 
+					gym_ID
+				FROM
+					fac_info
+				where
+					fac_ID = #{fac_id}
+			),
+			#{fac_id},
+			#{title},
+			#{detail},
+			#{type},
+			'1',
+			STR_TO_DATE(#{startDate}, '%Y-%m-%d %T'),
+			STR_TO_DATE(#{endDate}, '%Y-%m-%d %T')
+		)
+	</insert>
+	
+	<update id="updateSchedule" parameterType="hashMap">
+		update
+			fac_schedule	
+		set
+			starttime = STR_TO_DATE(#{startDate}, '%Y-%m-%d %T'),
+			endtime = STR_TO_DATE(#{endDate}, '%Y-%m-%d %T'),
+			schedule_name = #{title},
+			schedule_detail = #{detail},
+			schedule_type = #{type}
+		where
+			schedule_ID = #{schedule_id}
+	</update>
+	
+	<delete id="deleteSchedule" parameterType="hashMap">
+		delete
+		from
+			fac_schedule
+		where
+			schedule_ID = #{schedule_id}
+	</delete>
+	
+	<!-- 
+	@Parameter : title / contents
+	@Do : 새로운 게시글 추가
+	 -->
+	<insert id="insertTournament_board" parameterType="hashMap" >
+	insert
+		into tournament_board
+	(
+		title,
+		contents
+	)
+	values
+	(
+		#{title},
+		#{contents}
+	)
+	</insert>
+	
+	<!-- 
+	@Parameter : serial
+	@Do : serial을 가진 게시글의 정보 검색
+	 -->
+	<select id="selectTournament_board" parameterType="hashMap" resultType="hashMap">
+		select
+			tournament_ID as "serial",
+			title as "title",
+			contents as "contents"
+		from
+			tournament_board
+		where
+			tournament_ID = #{serial}
+	</select>
+	
+	<!-- 
+	@Parameter : -
+	@Do : 현재 사용자와 연관된 게시글 전체 조회
+	 -->
+	<select id="listTournament_board" parameterType="hashMap" resultType="hashMap">
+		select
+			tournament_ID as "serial",
+			title as "title"
+		from
+			tournament_board
+	</select>
+	
+	<!-- 
+	@Parameter : serial
+	@Do : 게시글 삭제
+	 -->
+	<delete id="deleteTournament_board" parameterType="hashMap">
+		delete
+		from
+			tournament_board
+		where
+			tournament_ID = #{serial}
+	</delete>
+	
+	<!-- 
+	@Parameter : serial
+	@Do : 게시글 수정
+	 -->
+	<update id="updateTournament_board" parameterType="hashMap">
+		update
+			tournament_board
+		set
+			title = #{title},
+			contents = #{contents}
+		where
+			tournament_ID = #{serial}
+	</update>
+	
+	<!-- 
+	@Parameter : UDID
+	@Result : 시설 ID / 시설 이름 / 시설 시작시간 / 시설 끝나는시간
+	@Do : 시설 조회
+	 -->
+	<select id="viewFacilityList" parameterType="hashMap" resultType="hashMap">
+	
+	SELECT
+         A.fac_ID as "f_id",
+         A.avail_starttime as "f_startTime",
+         A.avail_endtime as "f_endTime",
+         A.avail_participant as "f_participant",
+         A.fac_name as "f_name",
+         C.subj_name as "f_subject"
+      FROM 
+         fac_info AS A 
+         LEFT OUTER JOIN subject AS C
+         ON A.subj_ID = C.subj_ID
+      WHERE
+         gym_ID = (SELECT gym_ID FROM gym_admin WHERE UDID = #{UDID})
+	
+	</select>
+</mapper>

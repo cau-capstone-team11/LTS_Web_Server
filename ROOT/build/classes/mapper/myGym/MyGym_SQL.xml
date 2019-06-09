@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MyGym">
+	
+	<select id="viewGym" parameterType="hashMap" resultType="hashMap">
+	
+		SELECT
+			A.gym_ID as "id",
+			A.gym_name as "name",
+			A.gym_fig as "fig",
+			A.gym_location as "location",
+			A.gym_latitude as "latitude",
+			gym_longitude as "longitude",
+			avail_starttime as "startTime",
+			avail_endtime as "endTime",
+			gym_info as "info"
+		FROM
+			gym as A
+		WHERE 
+			A.gym_admin_ID = #{UDID};
+			
+	</select>
+	
+	<select id="viewFacility" parameterType="hashMap" resultType="hashMap">
+	
+		SELECT
+			A.fac_ID as "f_id",
+			A.avail_starttime as "f_startTime",
+			A.avail_endtime as "f_endTime",
+			A.avail_participant as "f_participant",
+			A.fac_name as "f_name",
+			C.subj_name as "f_subject"
+		FROM 
+			fac_info AS A 
+			LEFT OUTER JOIN subject AS C
+			ON A.subj_ID = C.subj_ID
+		WHERE
+			gym_ID = (SELECT gym_ID FROM gym_admin WHERE UDID = #{UDID})
+			
+	</select>
+	
+	<insert id="registerGym" parameterType="hashMap" useGeneratedKeys="true" keyProperty="id" keyColumn="gym_ID">
+	
+		INSERT INTO gym(
+			gym_name,
+			gym_fig,
+			gym_location,
+			gym_latitude,
+			gym_longitude,
+			avail_starttime,
+			avail_endtime,
+			gym_info,
+			gym_admin_ID)
+		VALUES (
+			#{gym_name},
+			#{gym_fig},
+			#{gym_location},
+			#{gym_latitude},
+			#{gym_longitude},
+			#{avail_starttime},
+			#{avail_endtime},
+			#{gym_info},
+			#{gym_admin_ID}
+		)
+		
+	</insert>
+	
+	<update id="updateGymAdminID" parameterType="hashMap">
+		UPDATE
+			gym_admin 
+		SET 
+			gym_ID = #{id}
+		WHERE 
+			UDID = #{gym_admin_ID}
+	</update>
+	
+	<update id="editGym" parameterType="hashMap">
+		UPDATE
+			gym 
+		SET 
+			gym_name = #{gym_name},
+			gym_location = #{gym_location},
+			avail_starttime= #{avail_starttime},
+			avail_endtime= #{avail_endtime},
+			gym_info = #{gym_info}
+		WHERE 
+			gym_admin_ID = #{admin_ID}
+	</update>
+
+	<insert id="addFacility1" parameterType="hashMap">
+	
+		INSERT INTO fac_info(
+								gym_ID,
+								avail_starttime,
+								avail_endtime,
+								avail_participant,
+								fac_name,
+								subj_ID) 
+		VALUES (#{gym_ID}, #{avail_starttime}, #{avail_endtime}, #{avail_participant}, #{fac_name}, 1);
+		
+	</insert>
+	<update id="addFacility2" parameterType="hashMap">
+		
+		UPDATE 
+			fac_info
+		SET
+			subj_ID = (select subj_ID FROM subject WHERE subj_name = #{subj_name});
+		
+	</update>
+	
+	<update id="editFacility" parameterType="hashMap">
+		UPDATE
+			fac_info
+		SET
+			avail_starttime = #{avail_starttime},
+			avail_endtime = #{avail_endtime},
+			avail_participant = #{avail_participant},
+			fac_name = #{fac_name},
+			subj_ID = (SELECT subj_ID FROM subject WHERE subj_name = #{subj_name})
+		WHERE
+			fac_ID = #{fac_ID}
+	</update>
+	
+	<delete id="delFacility" parameterType="hashMap">
+		DELETE FROM fac_info WHERE fac_ID = ${fac_ID}
+	</delete>	
+</mapper>
